@@ -32,10 +32,12 @@ export default {
   align-items: center;
   justify-content: center;
 }
+
 .text-larger {
   font-size: x-large;
   margin-bottom: 1rem;
 }
+
 .text-large {
   font-size: large;
   margin-bottom: 1rem;
