@@ -1,6 +1,6 @@
 <template>
   <div class="app-containers">
-    <Modeler />
+    <Modeler v-if="bpmnXml" :bpmnXml="bpmnXml" />
     <Panel />
     <BpmnActions />
   </div>
@@ -18,7 +18,20 @@ export default defineComponent({
     Modeler, Panel, BpmnActions
   },
   data: () => ({
-    counter: 0
+    counter: 0,
+    bpmnXml: `<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             id="definitions"
+             targetNamespace="http://bpmn.io/schema/bpmn">
+  <process id="process" name="Simple Process" isExecutable="true">
+    <startEvent id="startEvent" name="Start"></startEvent>
+    <endEvent id="endEvent" name="End"></endEvent>
+    <sequenceFlow id="flow" sourceRef="startEvent" targetRef="endEvent"></sequenceFlow>
+  </process>
+</definitions>
+`
   }),
   methods: {
     increment() {
