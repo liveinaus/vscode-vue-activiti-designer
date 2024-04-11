@@ -1,14 +1,22 @@
 <template>
-  <div class="centered-screen">
-    <span class="text-larger">vscode webvue</span>
-    <span class="text-large">vscode extension development template using vue 3 and vite!</span>
-    <button @click="increment">increment {{ counter }}</button>
+  <div class="app-containers">
+    <Modeler />
+    <Panel />
+    <BpmnActions />
   </div>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+import BpmnActions from './components/bpmn-actions';
+import Modeler from './components/modeler';
+import Panel from './components/panel';
+
+export default defineComponent({
   name: 'App',
+  components: {
+    Modeler, Panel, BpmnActions
+  },
   data: () => ({
     counter: 0
   }),
@@ -20,7 +28,7 @@ export default {
       })
     },
   }
-}
+});
 </script>
 
 <style>
