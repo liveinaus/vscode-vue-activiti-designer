@@ -5,6 +5,7 @@ import "bpmn-js/dist/assets/diagram-js.css";
 import "./modeler.css";
 
 import { BpmnStore } from "@/bpmn/store";
+import { BpmnContext } from "@/bpmn/type";
 import { defineComponent, onMounted } from "vue";
 import translate from "../../bpmn/i18n";
 import activitiModdel from "../../bpmn/resources/activiti-moddel.json";
@@ -17,9 +18,9 @@ export default defineComponent({
             required: true,
         },
     },
-    setup(props) {
-        const bpmnContext = BpmnStore;
-        console.log("====xml=====", props);
+    emits: ["elementChanged"],
+    setup(props, { emit }) {
+        const bpmnContext: BpmnContext = BpmnStore;
         onMounted(() => {
             bpmnContext.initModeler({
                 container: "#modeler-container",
@@ -31,6 +32,7 @@ export default defineComponent({
                     activiti: activitiModdel,
                 },
             });
+
             bpmnContext
                 .importXML(props.bpmnXml)
                 .then((result: Array<string>) => {
@@ -41,6 +43,11 @@ export default defineComponent({
                 .catch((err: any) => {
                     console.warn("importFail errors ", err);
                 });
+
+            bpmnContext.addEventListener("element.changed", async (evt) => {
+                const { xml } = await bpmnContext.getXML();
+                emit("elementChanged", xml);
+            });
         });
 
         return () => <div id="modeler-container" />;

@@ -1,6 +1,6 @@
 <template>
-  <div class="app-containers">
-    <Modeler v-if="bpmnXml" :bpmnXml="bpmnXml" />
+  <div class="app-containers" v-if="bpmnXml">
+    <Modeler :bpmnXml="bpmnXml" @elementChanged="xmlChanged" :key="bpmnXml" />
     <Panel />
     <BpmnActions />
   </div>
@@ -18,29 +18,33 @@ export default defineComponent({
     Modeler, Panel, BpmnActions
   },
   data: () => ({
-    counter: 0,
-    bpmnXml: `<?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
-             id="definitions"
-             targetNamespace="http://bpmn.io/schema/bpmn">
-  <process id="process" name="Simple Process" isExecutable="true">
-    <startEvent id="startEvent" name="Start"></startEvent>
-    <endEvent id="endEvent" name="End"></endEvent>
-    <sequenceFlow id="flow" sourceRef="startEvent" targetRef="endEvent"></sequenceFlow>
-  </process>
-</definitions>
-`
+    bpmnXml: ''
   }),
   methods: {
-    increment() {
-      this.counter += 1
-      vscode.postMessage({
-        message: 'extension can listen to vue events by using postMessage method!'
-      })
+    xmlChanged(xml: string) {
+      this.bpmnXml = xml;
+      this.updateXml();
     },
+    loadXml(xml: string) {
+      this.bpmnXml = xml;
+      console.log('loadXml', xml);
+    }, updateXml() {
+      vscode.postMessage({
+        message: 'updateXml', 'xml': this.bpmnXml
+      })
+    }
+  },
+  mounted() {
+    window.addEventListener("message", (event) => {
+      const vscodeData = event.data;
+      if (vscodeData.command === "loadXml") {
+        if (vscodeData?.data) {
+          this.loadXml(vscodeData?.data);
+        }
+      }
+    });
   }
+
 });
 </script>
 
