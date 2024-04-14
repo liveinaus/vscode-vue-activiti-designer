@@ -4,7 +4,7 @@ A vue based vscode activiti designer extension.
 
 ## Commands
 
-    activiti-designer.loadBpmn
+    activiti-designer.editBpmn
 
 ### Install dependencies
 

@@ -25,15 +25,15 @@ const BpmnGroupBaseProperties = {
             component: ElInput,
             placeholder: translatorFn("Element ID"),
             vSlots: {
-                prepend: (): JSX.Element => <div>节点ID</div>,
+                prepend: (): JSX.Element => <div>Element ID</div>,
             },
         },
         name: {
             component: ElInput,
             // prefix: '节点名称',
-            placeholder: "节点名称",
+            placeholder: "Element Name",
             vSlots: {
-                prepend: (): JSX.Element => <div>节点名称</div>,
+                prepend: (): JSX.Element => <div>Element Name</div>,
             },
             getValue: (obj: { categoryValueRef: CategoryValueRef }): string => {
                 return obj?.categoryValueRef?.value;

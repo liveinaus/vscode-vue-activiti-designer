@@ -1,70 +1,46 @@
-# venom-gui-extension README
+# vscode-vue-activiti-designer
 
-This is the README for your extension "venom-gui-extension". After writing up a brief description, we recommend including the following sections.
+A vue based vscode activiti designer extension.
 
-## Features
+## Notes
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension should support up to Activiti 7. However, I am using Activiti 5 at the moment (for old projects), therefore other versions are untested. Please test the extension by yourself. If you see any issue, please feel free to contact me.
 
-For example if there is an image subfolder under your extension project workspace:
+## Commands
 
-\!\[feature X\]\(images/feature-x.png\)
+    activiti-designer.editBpmn
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### Install dependencies
 
-## Requirements
+```bash
+yarn
+```
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+For running project in development mode use
 
-## Extension Settings
+```bash
+yarn watch
+```
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## How it works
 
-For example:
+The project is built with monorepo structure containing two packages. The first one being the client, and the second being the visual studio code extension program.
 
-This extension contributes the following settings:
+when you start developing on the `/packages/client/` vue application directory, your changes will be watched using nodemon, then rebuilt and be opened inside vscode extension host ready to be used with vscode command pallet!
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+Here you can see your vue project already built and injected using vscode webview API. you can utilize the full functionality of vue such as its amazing reactivity and its available additions (like `vue-router`) out of the box!
 
-## Known Issues
+Inside the vue application code, the `vscode` object is globally accessible and can be used to send messages to the vscode runtime and perform tasks such as read/writing files, etc.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## Contribution
 
-## Release Notes
+If you have any questions or recommendations please create a new issue for it, and if you've hacked together any feature or enhancement, a pull request is more than welcome here! 🙏
 
-Users appreciate release notes as you update your extension.
+## Thanks
 
-### 1.0.0
+-   [vscode-webvue](https://github.com/Mhdi-kr/vscode-webvue)
+-   [bpmn-vue-activiti](https://github.com/Yiuman/bpmn-vue-activiti)
 
-Initial release of ...
+## LICENSE
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+GNU General Public License v3.0

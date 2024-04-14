@@ -3,7 +3,7 @@ import * as vscode from "vscode";
 
 export function activate(context: vscode.ExtensionContext) {
     let kindDisposable = vscode.commands.registerCommand(
-        `activiti-designer.loadBpmn`,
+        `activiti-designer.editBpmn`,
         async () => {
             //Get current editor text content
             const editor = vscode.window.activeTextEditor;

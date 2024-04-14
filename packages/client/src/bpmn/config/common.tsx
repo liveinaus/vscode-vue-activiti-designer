@@ -16,7 +16,7 @@ const commonProperties: PropertiesMap<FieldDefine> = {
         component: ElInput,
         placeholder: translatorFn("Element ID"),
         vSlots: {
-            prepend: (): JSX.Element => <div>节点ID</div>,
+            prepend: (): JSX.Element => <div>Element ID</div>,
         },
         setValue(sourceObject: ModdleElement, key: string, value: string) {
             const isNotNull = value;
@@ -30,9 +30,9 @@ const commonProperties: PropertiesMap<FieldDefine> = {
     name: {
         component: ElInput,
         // prefix: '节点名称',
-        placeholder: "节点名称",
+        placeholder: "Element Name",
         vSlots: {
-            prepend: (): JSX.Element => <div>节点名称</div>,
+            prepend: (): JSX.Element => <div>Element Name</div>,
         },
     },
 };
@@ -41,7 +41,7 @@ const commonProperties: PropertiesMap<FieldDefine> = {
  * （基础信息）每个节点都有的
  */
 export const CommonGroupProperties: GroupProperties = {
-    name: "基础信息",
+    name: "Information",
     icon: "el-icon-info",
     properties: { ...commonProperties },
 };
@@ -51,7 +51,7 @@ interface Documentation {
 }
 
 export const DocumentGroupProperties: GroupProperties = {
-    name: "元素文档",
+    name: "Element Documentation",
     icon: "el-icon-document",
     properties: {
         "documentation.text": {
@@ -88,24 +88,23 @@ interface PropertyElement {
  * 流程事件类型选项
  */
 const EVENT_OPTIONS = [
-    { label: "开始", value: "start" },
-    { label: "结束", value: "end" },
+    { label: "Start", value: "start" },
+    { label: "End", value: "end" },
 ];
 
 /**
  * 监听器类型选项
  */
 const TYPE_OPTIONS = [
-    { label: "java类", value: "class" },
-    { label: "调用表达式", value: "expression" },
-    { label: "注入表达式", value: "delegateExpression" },
+    { label: "Java Expression", value: "class" },
+    { label: "Expression", value: "expression" },
+    { label: "Delegate Expression", value: "delegateExpression" },
 ];
 
 /**
  * 获取节点类型的监听器属性配置组
  * @param options 参数
  */
-import { JSX } from "vue/jsx-runtime";
 import { TaskNameMapping } from "./TypeNameMapping";
 
 const taskTags = Object.keys(TaskNameMapping);
@@ -117,7 +116,7 @@ export const getElementTypeListenerProperties = function (options: {
 }): GroupProperties {
     const eventOptions = options.eventOptions || EVENT_OPTIONS;
     return {
-        name: options.name || "监听器",
+        name: options.name || "Listeners",
         icon: options.icon || "el-icon-bell",
         properties: {
             "extensionElements.listeners": {
@@ -125,12 +124,12 @@ export const getElementTypeListenerProperties = function (options: {
                 columns: [
                     {
                         type: "index",
-                        label: "序号",
+                        label: "Index",
                         align: "center",
                     },
                     {
                         prop: "event",
-                        label: "事件",
+                        label: "Event",
                         align: "center",
                         formatter: (row: any, column: any): string => {
                             return eventOptions.filter(
@@ -165,7 +164,7 @@ export const getElementTypeListenerProperties = function (options: {
                     },
                     {
                         prop: "type",
-                        label: "执行类型",
+                        label: "Type",
                         align: "center",
                         formatter: (row: any, column: any) => {
                             return TYPE_OPTIONS.filter(
@@ -200,14 +199,18 @@ export const getElementTypeListenerProperties = function (options: {
                     },
                     {
                         prop: "content",
-                        label: "执行内容",
+                        label: "Value",
                         align: "center",
                     },
                 ],
                 rules: {
-                    event: [{ required: true, message: "事件不能为空" }],
-                    type: [{ required: true, message: "类型不能为空" }],
-                    content: [{ required: true, message: "执行内容不能为空" }],
+                    event: [
+                        { required: true, message: "Event cannot be empty" },
+                    ],
+                    type: [{ required: true, message: "Type cannot be empty" }],
+                    content: [
+                        { required: true, message: "Value cannot be empty" },
+                    ],
                 },
                 getValue: (businessObject: ModdleElement): Array<any> => {
                     const listenerTagName = taskTags?.includes(
@@ -274,7 +277,7 @@ export const getElementTypeListenerProperties = function (options: {
  * 扩展属性组配置
  */
 export const ExtensionGroupProperties: GroupProperties = {
-    name: "扩展属性",
+    name: "Extension Group Properties",
     icon: "el-icon-document-add",
     properties: {
         "extensionElements.properties": {
@@ -282,23 +285,23 @@ export const ExtensionGroupProperties: GroupProperties = {
             columns: [
                 {
                     type: "index",
-                    label: "序号",
+                    label: "Index",
                     align: "center",
                 },
                 {
                     prop: "name",
-                    label: "属性名",
+                    label: "Name",
                     align: "center",
                 },
                 {
                     prop: "value",
-                    label: "属性值",
+                    label: "Value",
                     align: "center",
                 },
             ],
             rules: {
-                name: [{ required: true, message: "属性名不能为空" }],
-                value: [{ required: true, message: "属性值不能为空" }],
+                name: [{ required: true, message: "name cannot be empty" }],
+                value: [{ required: true, message: "value cannot be empty" }],
             },
             getValue: (businessObject: ModdleElement): Array<any> => {
                 const extProperties =
@@ -354,14 +357,14 @@ interface FromPropertyAttrsElement {
  * （基础信息）表单
  */
 export const FormGroupProperties: GroupProperties = {
-    name: "表单信息",
+    name: "Form Information",
     icon: "el-icon-edit",
     properties: {
         formKey: {
             component: ElInput,
-            placeholder: "表单key",
+            placeholder: "Form Key",
             vSlots: {
-                prepend: (): JSX.Element => <div>表单key</div>,
+                prepend: (): JSX.Element => <div>Form Key</div>,
             },
         },
         "extensionElements.formProperty": {
@@ -369,24 +372,24 @@ export const FormGroupProperties: GroupProperties = {
             columns: [
                 {
                     prop: "id",
-                    label: "编码",
+                    label: "ID",
                     align: "center",
                 },
                 {
                     prop: "type",
-                    label: "类型",
+                    label: "Type",
                     align: "center",
                 },
                 {
                     prop: "name",
-                    label: "名称",
+                    label: "Name",
                     align: "center",
                 },
             ],
             rules: {
-                id: [{ required: true, message: "编码不能为空" }],
-                type: [{ required: true, message: "类型不能为空" }],
-                name: [{ required: true, message: "名称不能为空" }],
+                id: [{ required: true, message: "ID cannot be empty" }],
+                type: [{ required: true, message: "Type cannot be empty" }],
+                name: [{ required: true, message: "name cannot be empty" }],
             },
             getValue: (
                 businessObject: ModdleElement
