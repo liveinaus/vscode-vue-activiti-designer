@@ -14,7 +14,7 @@
 		"commands": [
 			{
 				"command": "activiti-designer.loadBpmn",
-				"title": "Load BPMN"
+				"title": "Vue Activiti Designer: Load BPMN"
 			}
 		]
 	},

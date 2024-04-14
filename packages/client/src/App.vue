@@ -1,6 +1,6 @@
 <template>
   <div class="app-containers" v-if="bpmnXml">
-    <Modeler :bpmnXml="bpmnXml" @elementChanged="xmlChanged" :key="bpmnXml" />
+    <Modeler :bpmnXml="bpmnXml" @elementChanged="xmlChanged" />
     <Panel />
     <BpmnActions />
   </div>
@@ -22,15 +22,14 @@ export default defineComponent({
   }),
   methods: {
     xmlChanged(xml: string) {
-      this.bpmnXml = xml;
-      this.updateXml();
+      this.updateXml(xml);
     },
     loadXml(xml: string) {
       this.bpmnXml = xml;
       console.log('loadXml', xml);
-    }, updateXml() {
+    }, updateXml(xml: string) {
       vscode.postMessage({
-        message: 'updateXml', 'xml': this.bpmnXml
+        message: 'updateXml', 'xml': xml
       })
     }
   },

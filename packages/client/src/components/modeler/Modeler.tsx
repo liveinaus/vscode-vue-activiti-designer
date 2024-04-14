@@ -26,7 +26,7 @@ export default defineComponent({
                 container: "#modeler-container",
                 additionalModules: [
                     //添加翻译
-                    { translate: ["value", translate("zh")] },
+                    { translate: ["value", translate("en")] },
                 ],
                 moddleExtensions: {
                     activiti: activitiModdel,

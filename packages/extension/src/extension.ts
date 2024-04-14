@@ -4,14 +4,22 @@ import * as vscode from "vscode";
 export function activate(context: vscode.ExtensionContext) {
     let kindDisposable = vscode.commands.registerCommand(
         `activiti-designer.loadBpmn`,
-        () => {
+        async () => {
             //Get current editor text content
             const editor = vscode.window.activeTextEditor;
             if (!editor) {
                 vscode.window.showErrorMessage("No active text editor found.");
                 return;
+            } else {
+                //close the current editor
+                await vscode.commands.executeCommand(
+                    "workbench.action.closeActiveEditor"
+                );
             }
             const panel = prepareWebView(context);
+            //update webview title from the current editor
+            //use file name not the full path
+            panel.title = path.basename(editor.document.fileName);
 
             panel.webview.postMessage({
                 command: "loadXml",

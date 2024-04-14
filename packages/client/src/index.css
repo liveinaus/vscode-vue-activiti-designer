@@ -38,3 +38,7 @@ body {
   background-color: #475156;
   border-radius: 2px;
 }
+
+#app {
+  background-color: #f1f1f1;
+}
