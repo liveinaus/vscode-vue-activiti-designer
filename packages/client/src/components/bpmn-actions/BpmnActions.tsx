@@ -46,6 +46,13 @@ export default defineComponent({
                 };
             }
         };
+
+        const postVscodeMessage = function (message: string) {
+            vscode.postMessage({
+                message,
+            });
+        };
+
         const buttonRenderProps: ButtonRenderProps = {
             buttons: [
                 {
@@ -162,6 +169,27 @@ export default defineComponent({
                             .catch((err: unknown) => {
                                 console.warn(err);
                             });
+                    },
+                },
+                {
+                    label: "Undo",
+                    icon: "icon-weibiaoti545",
+                    action: () => {
+                        postVscodeMessage("goBack");
+                    },
+                },
+                {
+                    label: "Redo",
+                    icon: "icon-weibiaoti546",
+                    action: () => {
+                        postVscodeMessage("goForward");
+                    },
+                },
+                {
+                    label: "save XML",
+                    icon: "icon-baocun",
+                    action: () => {
+                        postVscodeMessage("saveXml");
                     },
                 },
                 // {

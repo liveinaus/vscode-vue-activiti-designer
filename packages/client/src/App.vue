@@ -1,6 +1,6 @@
 <template>
   <div class="app-containers" v-if="bpmnXml">
-    <Modeler :bpmnXml="bpmnXml" @elementChanged="xmlChanged" />
+    <Modeler :bpmnXml="bpmnXml" @elementChanged="xmlChanged" :key="bpmnXml" />
     <Panel />
     <BpmnActions />
   </div>
