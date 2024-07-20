@@ -6,9 +6,9 @@ const translatorFn = getTranslatorFn("en");
 
 export const ProcessNameMapping = {
     //流程
-    "bpmn:Process": "流程",
+    "bpmn:Process": translatorFn("Process"),
     //子流程
-    "bpmn:SubProcess": "子流程",
+    "bpmn:SubProcess": translatorFn("Sub Process"),
 };
 
 // 事件名字匹配
