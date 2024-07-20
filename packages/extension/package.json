@@ -3,7 +3,7 @@
   "displayName": "BPMN: Activiti Designer",
   "description": "Edit BPMN files for Activiti Workflow Engine",
   "icon": "images/logo_marketplace.png",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "SamWang",
   "author": "Sam Wang",
   "engines": {
