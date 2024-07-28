@@ -2,7 +2,11 @@
 
 A Vue based vscode Activiti designer extension.
 
-## features
+## Screenshot
+
+![alt text](../../screenshots/0.2.0.png)
+
+## Features
 
 <!-- add checkboxes for features -->
 
