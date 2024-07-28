@@ -1,40 +1,40 @@
 {
-	// Javascript
-	"javascript.updateImportsOnFileMove.enabled": "always",
-	"[javascript]": {
-		"editor.formatOnSave": true,
-		"editor.tabSize": 2,
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnSaveMode": "file",
-		"editor.insertSpaces": true,
-	},
-	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnSave": true,
-		"editor.tabSize": 2,
-		"editor.insertSpaces": true,
-	},
-	// Vue
-	"[vue]": {
-		"editor.defaultFormatter": "Vue.volar",
-		"editor.formatOnSave": true,
-		"editor.tabSize": 2,
-		"editor.insertSpaces": true,
-		"editor.formatOnSaveMode": "file",
-	},
-	"vetur.format.defaultFormatterOptions": {
-		"prettier": {
-			"printWidth": 300,
-			"useTabs": false,
-		}
-	},
-	"eslint.options": {
-		"rules": {
-			"no-undef": "off"
-		}
-	},
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.formatOnSave": true,
-	"editor.tabSize": 2,
-	"editor.insertSpaces": true,
+  // Javascript
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSaveMode": "file",
+    "editor.insertSpaces": true,
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+  },
+  // Vue
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.formatOnSaveMode": "file",
+  },
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "printWidth": 300,
+      "useTabs": false,
+    }
+  },
+  "eslint.options": {
+    "rules": {
+      "no-undef": "off"
+    }
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
 }

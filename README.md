@@ -1,24 +1,43 @@
 # vscode-vue-activiti-designer
 
-A vue based vscode activiti designer extension.
+A Vue based vscode Activiti designer extension.
 
-## features
+## Screenshot
+
+![alt text](screenshots/0.2.0.png)
+
+## Features
 
 <!-- add checkboxes for features -->
 
-Diagram editing
-
-History support
+-   [x] Diagram editing
+-   [x] History support
+-   [ ] Show/Hide property panel
+-   [ ] Multiple languages support
+-   [ ] IDs prefix
+-   [ ] Multiple Activiti version support
 
 ## Usage
 
-Open the BPMN file you want to edit. Trigger editBpmn command. You should then see the diagram. Do you editing and click save button (at the bottom) to save the change.
+Open the BPMN file you want to edit.
+
+Trigger editBpmn command.
+
+You should then see the diagram.
+
+Do you editing and click save button (at the bottom) to save the change.
 
 ## Commands
 
-    activiti-designer.editBpmn
+-   `activiti-designer.editBpmn`: toggle BPMN designer for current BPMN file
+
+## Settings
+
+N/A
 
 ## Development (for the extension)
+
+### Extension side
 
 ```bash
 yarn
@@ -30,7 +49,17 @@ For running project in development mode use
 yarn watch
 ```
 
-### How it works
+### Client side
+
+```bash
+yarn
+```
+
+```bash
+yarn build
+```
+
+### How the development works
 
 The project is built with monorepo structure containing two packages. The first one being the client, and the second being the visual studio code extension program.
 
