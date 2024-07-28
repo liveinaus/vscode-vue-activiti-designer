@@ -1,0 +1,31 @@
+// A launch configuration that compiles the extension and then opens it inside a new window
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Extension",
+      "type": "extensionHost",
+      "request": "launch",
+      // "runtimeExecutable": "${workspaceFolder}/packages/extension/node_modules/.bin/mocha",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/packages/extension",
+        "--disable-extensions"
+      ],
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceFolder}/packages/extension/dist/**/*",
+        // "${workspaceFolder}/packages/extension/out/**/*",
+        // "${workspaceFolder}/packages/extension/vue-dist/**/**/*",
+        // "${workspaceFolder}/packages/extension/out/**/*.js"
+      ],
+      "preLaunchTask": "build-activiti-designer",
+      // "sourceMapPathOverrides": {
+      //   "webpack:///./*": "${webRoot}/*",
+      //   "webpack:///src/*": "${webRoot}/*",
+      //   "webpack:///*": "*",
+      //   "webpack:///./~/*": "${webRoot}/node_modules/*",
+      //   "meteor://💻app/*": "${webRoot}/*"
+      // }
+    }
+  ]
+}
