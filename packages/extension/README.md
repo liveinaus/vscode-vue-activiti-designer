@@ -4,7 +4,7 @@ A Vue based vscode Activiti designer extension.
 
 ## Screenshot
 
-![alt text](../../screenshots/0.2.0.png)
+![0.2.0 screenshot](https://github.com/liveinaus/vscode-vue-activiti-designer/raw/main/screenshots/0.2.0.png)
 
 ## Features
 
