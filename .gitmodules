@@ -1,0 +1,3 @@
+[submodule "packages/bpmn-vue-activiti"]
+	path = packages/client
+	url = git@github.com:liveinaus/bpmn-vue-activiti.git
